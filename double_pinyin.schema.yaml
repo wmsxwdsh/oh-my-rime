@@ -41,6 +41,7 @@ switches:
 
 engine:
   processors:
+    - lua_processor@*kp_number_processor
     - lua_processor@*select_character              # 以词定字
     - lua_processor@*codeLengthLimit_processor     # 使用Lua限制输入内容的最大长度(防止过长而卡顿)
     - ascii_composer                               # ※ 處理西文模式及中西文切換
@@ -118,6 +119,7 @@ engine:
 # 【时区】
 #   O  带冒号格式        +08:00、-04:30、+05:45
 #   o  不带冒号格式      +0800、-0430、+0545
+#   A  中文时段    凌晨 / 上午 / 中午 / 下午 / 晚上
 date_formats:
   - "Y年m月d日"
   - "Y-m-d"
@@ -132,7 +134,7 @@ time_formats:
   - "H点M分"
   - "H:M:S"
   - "H时M分S秒"
-  - "下午I:M"
+  - "AI:M"
   - "I:M P"
 datetime_formats:
   - "Y-m-d H:M:S"
@@ -140,7 +142,6 @@ datetime_formats:
   - "YmdHMS"
   - "Y年m月d日 H点M分"
   - "y/m/d I:M p"
-
 
 # 简繁切换
 transcription_cc:
@@ -159,7 +160,7 @@ emoji_suggestion:
 # 最大输入长度
 codeLengthLimit_processor: 25
 
-axu_code:
+aux_code:
   # 激活码
   trigger_word: "`"
   # 展示辅码的模式
